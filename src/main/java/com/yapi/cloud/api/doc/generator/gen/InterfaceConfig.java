@@ -38,7 +38,7 @@ public class InterfaceConfig {
     }
 
 
-    static class MongoDbConfig{
+    public static class MongoDbConfig{
 
         /**
          * 数据库名称
