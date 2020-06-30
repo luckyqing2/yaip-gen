@@ -43,7 +43,7 @@ public class MongoDbOperator {
     }
 
 
-    public static Document findInterfaceByPathAndCatId(Integer catid,String path) {
+    public static Document findInterfaceByPathAndCatId(Long catid,String path) {
         MongoCollection mongoCollection = MongoDbOperator
                 .getMongoCollection(MongoDbConfig.dbName, MongoDbConfig.interfaceName);
         if (Objects.nonNull(mongoCollection)) {

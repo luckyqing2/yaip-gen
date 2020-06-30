@@ -28,7 +28,7 @@ import com.alibaba.fastjson.JSON;
 public class InterfaceApplication {
 
 
-    public static void run(Class... args) throws IOException {
+    public static void run(Class... args) throws Exception {
         System.out.println("--------------------------------");
         if (Objects.isNull(args) || args.length < 1) {
             System.out.println("-------------------------------请传入数据");
@@ -91,7 +91,7 @@ public class InterfaceApplication {
                         }
                         //根据全路径获取是否已经存在
                         Document interfaceByPathAndCatId = MongoDbOperator
-                                .findInterfaceByPathAndCatId(Math.toIntExact(catId), allPath);
+                                .findInterfaceByPathAndCatId(catId, allPath);
                         boolean update = false;
                         Long id = System.currentTimeMillis();
                         if (Objects.nonNull(interfaceByPathAndCatId)) {
