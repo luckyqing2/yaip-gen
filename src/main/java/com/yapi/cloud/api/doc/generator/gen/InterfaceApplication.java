@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import org.apache.commons.lang3.StringUtils;
 import org.bson.Document;
@@ -85,7 +86,7 @@ public class InterfaceApplication {
                         PostMapping postMatting = ((PostMapping) annotation);
                         String name = postMatting.name();
                         String[] path = postMatting.value();
-                        String allPath = basePath[0] + "/" + path[0];
+                        String allPath = basePath[0] + path[0];
                         if (StringUtils.isBlank(name)) {
                             System.out.println("---------------------方法上的注解PostMapping没有name没有赋值");
                         }
@@ -202,7 +203,7 @@ public class InterfaceApplication {
 
     public static boolean isNotNull(Field field) {
         Annotation[] annotations = field.getAnnotations();
-        return Arrays.stream(annotations).anyMatch(annotation -> annotation instanceof NotNull);
+        return Arrays.stream(annotations).anyMatch(annotation -> annotation instanceof NotNull || annotation instanceof NotBlank);
     }
 
 }

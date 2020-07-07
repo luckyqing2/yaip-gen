@@ -33,8 +33,6 @@ public class InterfaceConfig {
 
     static {
         excludeField.add("userId");
-        excludeField.add("merchantId");
-
     }
 
 
